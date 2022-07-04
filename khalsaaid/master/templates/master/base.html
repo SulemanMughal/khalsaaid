@@ -1,0 +1,21 @@
+{% load static %}
+
+<html lang="en" data-ng-app="khalsaaidapp">
+    <head>                
+	
+	    <title>{% block title %}KhalsaAid{% endblock %}</title>
+		{% include 'master/meta_tags.html' %}
+		{% include 'master/styles.html' %}
+		{% include 'master/cookieconsent.html' %}
+    </head>
+    <body>
+        
+		{% include 'master/menu_items.html' %}
+        {% block content %}
+            
+        {% endblock %}
+        <!-- end of bodyDiv started in header --> 
+        {% include 'master/scripts.html' %}
+        {% include 'master/mailchip.html' %}
+    </body>
+</html>

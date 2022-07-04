@@ -1,0 +1,262 @@
+
+{% extends 'master/base.html' %}
+{% load static %}
+
+{% block title %}KhalsaAid{% endblock %}
+
+{% block content %}
+<div class="bodyDiv">
+    {% include 'master/header.html' %}
+    <!-- put condition to not to display on home page -->
+                    <section class="slider-div inner-page-head ">
+            <div class="overlay"></div>					
+                                <div id="carousel-example-generic-desktop" class="carousel carousel-fade" data-ride="carousel" data-interval="5000">
+                <div class="carousel-inner" role="listbox">
+                                                <div class="item active ">
+                        <img src="{% static 'uploads/banners/1558450009_banner.jpg.jpeg' %}" width="100%"> 
+                    </div>
+                                                
+                </div>
+            </div>
+            <div id="carousel-example-generic-inner" class="carousel carousel-fade" data-ride="carousel" data-interval="5000">
+                <div class="carousel-inner" role="listbox">
+                                                <div class="item active ">
+                        <img src="{% static 'uploads/banners/mobile/1558450009_banner.jpg.jpeg' %}" width="100%"> 
+                    </div>
+                                                
+                </div>
+            </div>
+                            </section>
+        <style>
+.step
+{
+vertical-align: middle;
+top:0px !important;
+}
+.tw  , .fb 
+{
+text-align:center
+}
+.content-div .desc
+{
+height: 150px;
+overflow: hidden;
+}
+</style>
+<script>
+window.fbAsyncInit = function() {
+FB.init({
+appId      : '781867455250850',
+xfbml      : true,
+version    : 'v2.5'
+});
+};
+
+(function(d, s, id){
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) {return;}
+js = d.createElement(s); js.id = id;
+js.src = "//connect.facebook.net/en_US/sdk.js";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+</script>
+<article ng-controller="EventController">
+    {% include 'master/latest_events.html' %}
+</article>
+<script type="text/javascript">
+app.controller('EventController', ['$http', '$scope', '$location', '$sce','$timeout', function ($http, $scope, $location, $sce,$timeout) {
+ $scope.limitdata = 6;     
+$scope.trustSrc = function (src) {
+    src = src + '?showinfo=0&controls=0';
+    return $sce.trustAsResourceUrl(./src.html);
+};
+$scope.trusthtml = function (src) {
+    return $sce.trustAsHtml(src);
+};		
+$scope.allevents = [{"event_id":12,"is_read_more_added":1,"event_title":"10th Annual Snowdon Hike","small_description":"<h3>About The Snowdon Hike<\/h3>\r\n\r\n<div>In the heart of the Snowdonia National Park, you will commence your trek along the Llanberis Path. This great challenge will see you and fellow fundraisers hiking to the Snowdon summit, enjoying spectacular views along the way!<\/div>\r\n\r\n<div><br><\/div>\r\n\r\n<div>This challenge will test your physical and mental limits, but you will be rewarded by knowing that all your fundraising is going towards supporting our global projects.<\/div>\r\n\r\n<div><br><\/div>\r\n\r\n<div>On return, celebrate your achievement with delicious food, water and hot drinks served by our Langar Aid team. Don't forget to grab your medal and snap a photo, after all your hard work, you deserve it!\r\n<\/div><div><br><\/div>\r\n\r\n<div>\r\n<center>\r\n<a href=\"https:\/\/khalsaaid-snowdon.org\">REGISTER HERE<\/a>\r\n<\/div>\r\n\r\n","slug":"10th-annual-snowdon-hike","event_description":"<h3>About The Snowdon Hike<\/h3>\r\n\r\n<div>In the heart of the Snowdonia National Park, you will commence your trek along the Llanberis Path. This great challenge will see you and fellow fundraisers hiking to the Snowdon summit, enjoying spectacular views along the way!<\/div>\r\n\r\n<div><br><\/div>\r\n\r\n<div>This challenge will test your physical and mental limits, but you will be rewarded by knowing that all your fundraising is going towards supporting our global projects.<\/div>\r\n\r\n<div><br><\/div>\r\n\r\n<div>On return, celebrate your achievement with delicious food, water and hot drinks served by our Langar Aid team. Don't forget to grab your medal and snap a photo, after all your hard work, you deserve it!\r\n<\/div><div><br><\/div>\r\n\r\n<div>\r\n<center>\r\n<a href=\"https:\/\/khalsaaid-snowdon.org\">REGISTER HERE<\/a>\r\n<\/div>\r\n\r\n","start_date":"09 Jul 2022","end_date":"09 Jul 2022","fb_shares":0,"tweet_shares":0,"header_type":0,"header_info":"https:\/\/www.khalsaaid.org\/uploads\/events\/1652460839.jpg","created_on":"16 May 2022","publish_date":"16 May 2022","created_timeago":"2022-05-16 07:05:38","status":1,"sort_order":1,"publish_time":"07 05 AM"}];      
+$scope.sharetweet =  function (event_id)
+{
+  var w = window.open("https://www.khalsaaid.org/share/twitter1/"+event_id+"","_blank","toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=400, height=400");                                
+}                                   
+                            
+$scope.loadmordata = function()
+{
+$scope.limitdata =  $scope.limitdata + 6;
+}
+                            
+var sharedata = {};
+$scope.sharefb = function (data) 
+{
+
+if(data.header_type == 0)
+{
+FB.ui({
+   method: 'feed',
+  link: "https://www.khalsaaid.org/events",
+  name: data.event_title,
+  description : data.event_description,
+  caption: 'Khalsa Aid',
+  picture : data.header_info,
+  source:''
+
+}, function(response){
+ if (typeof response != 'undefined') {
+   $.ajax({
+       url: "https://www.khalsaaid.org/share/facebooknews",
+       type: "POST",
+       data: "event_id="+data.event_id,
+       success: function (response)
+       {
+       }                 
+      });                         
+
+    } else {             
+   }                
+}); 
+}
+else
+{
+FB.ui({
+   method: 'feed',
+  link: "https://www.khalsaaid.org/events",
+  name: data.event_title,
+  description : data.event_description,
+  caption: 'Khalsa Aid',
+  source:data.header_info
+
+}, function(response){
+ if (typeof response != 'undefined') {
+   $.ajax({
+       url: "https://www.khalsaaid.org/share/facebooknews",
+       type: "POST",
+       data: "event_id="+data.event_id,
+       success: function (response)
+       {
+
+
+       }                 
+      });                         
+
+    } else {             
+   }                
+}); 
+}
+}                               
+
+$scope.GoToDetails = function(Slug)
+{
+//redirect to project details page.
+window.location.href = 'events/' + Slug;
+}
+                    
+}]);
+</script>
+{% include 'master/twitter_section.html' %}
+<style>
+abbr[title], abbr[data-original-title]{
+border-bottom: none;
+}
+#carousel-background-twitter .cl-icon {
+opacity: 0;
+filter: alpha(opacity=0);
+}
+</style>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+
+var $carousel = $('#carousel-background-twitter');
+var $carouselCaptions = $carousel.find('.item .cl-icon');
+//var $carouselImages = $carousel.find('.item img');
+var carouselTimeout;
+
+$carousel.on('slid.bs.carousel', function() {
+    
+    var $item = $carousel.find('.item.active');
+    $('.cl-icon').animate({'opacity': 1}, 300);
+    carouselTimeout = setTimeout(function() { // start the delay
+        carouselTimeout = false;
+        $('.cl-icon').animate({'opacity': 0}, 300);                
+    }, 5000);
+}).on('slide.bs.carousel', function() {
+
+    $('.cl-icon').animate({'opacity': 0}, 300);
+    if (carouselTimeout) { // Carousel is sliding, stop pending animation if any
+        clearTimeout(carouselTimeout);
+        carouselTimeout = false;
+    }
+    // Reset styles
+    $('.cl-icon').animate({'opacity': 0}, 300);
+    
+});
+
+//        $('#carousel-background-twitter').carousel({
+//            interval: 5000,
+//            cycle: true,
+//        }).trigger('slid'); // Make the carousel believe that it has just
+
+
+});
+</script>
+<script type="text/javascript">
+//script to get twitter text
+$.ajax({
+url: 'https://www.khalsaaid.org/home/twitterdata',
+type: "get",
+beforeSend: function() {
+
+},
+success: function(res) {
+    //process data
+    if (res)// in case genre added successfully
+    {
+        //update follower count
+        var FollowerCount = parseInt(res.followers) > 999 ? (parseInt(res.followers) / 1000).toFixed(1) + 'k Followers' : parseInt(res.followers);
+        $(".follower_count").html(FollowerCount);
+        //loop through chat
+        var output = '';
+        var classactive = '';
+        //console.log(res.tweets.length)
+        var tweets = res.tweets;
+        for (var i = 0; i < tweets.length; i++)
+        {
+            if (i == 0)
+            {
+                classactive = 'active'
+            } else {
+                classactive = '';
+            }
+            output += '<div class="item ' + classactive + '">';
+            output += tweets[i]['text'];
+            output += '<div class="cl-icon"> <span style="margin-left:2px;" class="spantime"><i class="fa fa-clock-o"></i> <abbr class="timeago" title="' + tweets[i]['created_at'] + '"></abbr></span><span><i class="fa fa-retweet"></i> ' + tweets[i]['retweet_count'] + ' </span> <span><i class="fa fa-heart"></i> ' + tweets[i]['favorite_count'] + ' </span>';
+            //output += '<div class="time"> </div>';
+            output += '</div>';
+            output += '</div>';
+            //console.log(tweets[i]['created_at']);
+            $(".tweets-rotator").append(output);
+            output = '';
+        }
+        jQuery("abbr.timeago").timeago();
+        $('#carousel-background-twitter').carousel({
+            interval: 5000,
+            cycle: true,
+        }).trigger('slid'); // Make the carousel believe that it has just
+    } else {
+        console.log('data is not available');
+        return false;
+    }
+},
+error: function(e) {
+    //called when there is an error
+    //toastr.error('Oops! Something just went wrong. Please try again later.', 'News');
+},
+complete: function() {
+}
+}, "json");
+</script>
+
+{% include 'master/programmes.html' %}
+    {% include 'master/footer.html' %}
+</div> <!-- end of bodyDiv started in header --> 
+{% endblock %}
+

@@ -1,0 +1,21 @@
+{% load static %}
+
+<script>
+	$(window).load(function() {
+		var video = document.getElementById('bgvid');
+		if ($(window).width() < 768) {
+			$("#carousel-example-generic-desktop").remove();			
+			$("#carousel-background").remove();
+			$("#carousel-example-generic-inner").css('display','block');
+			$('#bgvid').remove();
+		}else{			
+			$("#carousel-example-generic-inner").remove();
+		}		
+	});
+</script>
+<script src="{% static 'js/frontsite/bootstrap.js' %}"></script>
+
+<script src="{% static 'js/frontsite/pinterest_grid.js' %}"></script>
+
+
+<script src="{% static 'js/frontsite/script.js' %}"></script>

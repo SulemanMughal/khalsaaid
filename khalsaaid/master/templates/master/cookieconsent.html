@@ -1,0 +1,27 @@
+{% load static %}
+
+
+            <link rel="stylesheet" type="text/css" href="{% static 'css/frontsite/cookieconsent.min.css' %}">
+            <script src="{% static 'js/frontsite/cookieconsent.min.js' %}"></script>
+            <script>
+            window.addEventListener("load", function(){
+            window.cookieconsent.initialise({
+              "palette": {
+                "popup": {
+                  "background": "#ff7100",
+                  "text": "#ffffff"
+                },
+                "button": {
+                  "background": "#2b3385",
+                  "text": "#ffffff"
+                }
+              },
+              "theme": "edgeless",
+              "content": {
+                "dismiss": "Close",
+                "link": "Our privacy policy",
+                "href": "/privacypolicy"
+              }
+            })});
+            </script>	
+		

@@ -1,0 +1,211 @@
+{% extends 'master/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="bodyDiv">
+    {% include 'master/header.html' %}
+    <!-- put condition to not to display on home page -->
+                    <section class="slider-div inner-page-head ">
+            <div class="overlay"></div>					
+                                <div id="carousel-example-generic-desktop" class="carousel carousel-fade" data-ride="carousel" data-interval="5000">
+                <div class="carousel-inner" role="listbox">
+                                                <div class="item active ">
+                        <img src="{% static 'uploads/banners/1558450009_banner.jpg.jpeg' %}" width="100%"> 
+                    </div>
+                                                
+                </div>
+            </div>
+            <div id="carousel-example-generic-inner" class="carousel carousel-fade" data-ride="carousel" data-interval="5000">
+                <div class="carousel-inner" role="listbox">
+                                                <div class="item active ">
+                        <img src="{% static 'uploads/banners/mobile/1558450009_banner.jpg.jpeg' %}" width="100%"> 
+                    </div>
+                                                
+                </div>
+            </div>
+                    </section>
+        <style>
+.page-des
+{
+text-align: left;
+}
+.wrapper-frame {
+position: relative;
+padding-bottom: 28.12%; /* 16:9 */
+padding-top: 25px;
+height: 0;
+}
+.wrapper-frame iframe {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+#myModal {
+z-index: 999999;
+}    
+</style>
+<article>
+<section class="paddingTB60">
+<div class="container "><!-- donate-custom-container-->
+    <h2 class="title01 text-center">Support Us</h2>
+    <div class="row donate-custom-row">
+        <div class="col-xs-12 col-md-12 col-sm-12">
+
+            <div class="page-des">Your donation towards Khalsa Aid is instrumental in supporting our humanitarian projects around the world. You can use the methods below to donate:
+            </div>
+            <div class="page-des">Donations within UK are tax-exempt through Registered Charity Number: 1163294.
+                <a href="uploads/giftaid.pdf" target="_blank" class="donate-font-bold" title="Click to open PDF file">Click here</a> to download the Gift Aid form (UK Only). Please post us the completed form.
+            </div>
+            <div class="page-des donate-section-one">The safest way to donate to Khalsa Aid is through on line payment or by cheque. If you are approached for a cash donation for Khalsa Aid please contact us, as this may be fraudulent. All Khalsa Aid fundraising activities are listed on this website.</div>
+        </div>
+    </div>
+
+<div class="row donate-custom-row">
+    <h3 class="text-center">Where are you donating from</h3>
+
+            <div class="container-fluid">
+              <div class="row" align="middle">
+                <div class="col-xs-12 col-md-2 col-sm-4"><a href="https://cafdonate.cafonline.org/10244#!/DonationDetails"><img src="{% static 'uploads/uk-flag.png' %}" height="150" width="150"><p><b>United Kingdom</b></p></a></div>
+                <div class="col-xs-12 col-md-2 col-sm-4"><a href="https://www.khalsaaid.org/euro-directdebit"><img src="{% static 'uploads/europe-flag.png' %}" height="150" width="150"><p><b>Europe</b></p></a></div>
+                <div class="col-xs-12 col-md-2 col-sm-4"><a href="https://www.khalsaaid.org/donate-canada"><img src="{% static 'uploads/canada-flag.png' %}" height="150" width="150"><p><b>Canada</b></p></a></div>
+                <div class="col-xs-12 col-md-2 col-sm-4"><a href="https://www.khalsaaid.org/donate-usa"><img src="{% static 'uploads/usa-flag.png' %}" height="150" width="150"><p><b>USA</b></p></a></div>
+                <div class="col-xs-12 col-md-2 col-sm-4"><a href="https://www.khalsaaid.org/donate-india"><img src="{% static 'uploads/india-flag.png' %}" height="150" width="150"><p><b>India</b></p></a></div>
+                <div class="col-xs-12 col-md-2 col-sm-4"><a href="https://www.khalsaaid.org/worldpay"><img src="{% static 'uploads/globe.png' %}" height="150" width="150"><p><b>Rest of the World</b></p></a></div>
+              </div>
+            </div>
+</div>
+
+    <div class="row donate-custom-row">
+        <div class="col-xs-12 col-md-12 col-sm-12">
+            <h3>By Cheque</h3>
+            <p>Please write the cheque payable to <span class="donate-font-bold">Khalsa Aid International</span> and post it to...</p>
+            <p>Khalsa Aid International, Unit 8, Lake End Court, Taplow Road, Taplow, Maidenhead, Berkshire, SL6 0JQ, England</p>
+        </div>
+    </div>
+    <div class="row donate-custom-row">
+        <div class="col-xs-12 col-md-12 col-sm-12">
+            <h3>Bank Transfer</h3>
+            <p>Use the details below to donate via your online bank account</p>
+            <p>Account Name: <span class="donate-font-bold">Khalsa Aid International</span></p>
+            <p><b>For local UK deposits</b></p>
+            <p>Bank: Barclays</p>
+            <p>Sort Code: 20-78-58</p>
+            <p>Account Number: 20209171</p>
+            <p></p>
+            <p><b>For international transfers</b></p>
+            <p>Please use SWIFT code BUKBGB22</p>
+            <p>IBAN: GB95 BUKB 2078 5820 2091 71</p>
+        </div>
+    </div>
+
+</div>
+</section>
+</article>
+{% include 'master/twitter_section.html' %}
+<style>
+abbr[title], abbr[data-original-title]{
+border-bottom: none;
+}
+#carousel-background-twitter .cl-icon {
+opacity: 0;
+filter: alpha(opacity=0);
+}
+</style>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+
+var $carousel = $('#carousel-background-twitter');
+var $carouselCaptions = $carousel.find('.item .cl-icon');
+//var $carouselImages = $carousel.find('.item img');
+var carouselTimeout;
+
+$carousel.on('slid.bs.carousel', function() {
+    
+    var $item = $carousel.find('.item.active');
+    $('.cl-icon').animate({'opacity': 1}, 300);
+    carouselTimeout = setTimeout(function() { // start the delay
+        carouselTimeout = false;
+        $('.cl-icon').animate({'opacity': 0}, 300);                
+    }, 5000);
+}).on('slide.bs.carousel', function() {
+
+    $('.cl-icon').animate({'opacity': 0}, 300);
+    if (carouselTimeout) { // Carousel is sliding, stop pending animation if any
+        clearTimeout(carouselTimeout);
+        carouselTimeout = false;
+    }
+    // Reset styles
+    $('.cl-icon').animate({'opacity': 0}, 300);
+    
+});
+
+//        $('#carousel-background-twitter').carousel({
+//            interval: 5000,
+//            cycle: true,
+//        }).trigger('slid'); // Make the carousel believe that it has just
+
+
+});
+</script>
+<script type="text/javascript">
+//script to get twitter text
+$.ajax({
+url: 'https://www.khalsaaid.org/home/twitterdata',
+type: "get",
+beforeSend: function() {
+
+},
+success: function(res) {
+    //process data
+    if (res)// in case genre added successfully
+    {
+        //update follower count
+        var FollowerCount = parseInt(res.followers) > 999 ? (parseInt(res.followers) / 1000).toFixed(1) + 'k Followers' : parseInt(res.followers);
+        $(".follower_count").html(FollowerCount);
+        //loop through chat
+        var output = '';
+        var classactive = '';
+        //console.log(res.tweets.length)
+        var tweets = res.tweets;
+        for (var i = 0; i < tweets.length; i++)
+        {
+            if (i == 0)
+            {
+                classactive = 'active'
+            } else {
+                classactive = '';
+            }
+            output += '<div class="item ' + classactive + '">';
+            output += tweets[i]['text'];
+            output += '<div class="cl-icon"> <span style="margin-left:2px;" class="spantime"><i class="fa fa-clock-o"></i> <abbr class="timeago" title="' + tweets[i]['created_at'] + '"></abbr></span><span><i class="fa fa-retweet"></i> ' + tweets[i]['retweet_count'] + ' </span> <span><i class="fa fa-heart"></i> ' + tweets[i]['favorite_count'] + ' </span>';
+            //output += '<div class="time"> </div>';
+            output += '</div>';
+            output += '</div>';
+            //console.log(tweets[i]['created_at']);
+            $(".tweets-rotator").append(output);
+            output = '';
+        }
+        jQuery("abbr.timeago").timeago();
+        $('#carousel-background-twitter').carousel({
+            interval: 5000,
+            cycle: true,
+        }).trigger('slid'); // Make the carousel believe that it has just
+    } else {
+        console.log('data is not available');
+        return false;
+    }
+},
+error: function(e) {
+    //called when there is an error
+    //toastr.error('Oops! Something just went wrong. Please try again later.', 'News');
+},
+complete: function() {
+}
+}, "json");
+</script>
+{% include 'master/programmes.html' %}
+{% include 'master/footer.html' %}
+</div> <!-- end of bodyDiv started in header --> 
+{% endblock %}

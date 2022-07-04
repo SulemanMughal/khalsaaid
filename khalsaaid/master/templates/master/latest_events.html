@@ -1,0 +1,26 @@
+{% load static %}
+<section class="grey-bg paddingT20">
+    <div class="container">
+        <h2 class="title01 text-center">Events</h2>
+        <div class="row" id="upcoming-event-section">
+            <div class="col-xs-6 col-md-4 white-panel" ng-cloak ng-repeat="events in allevents|  limitTo :3">
+                <div class="active-projects-box">
+                    <div class="img-div" style="background: url('{% static 'images/1652460839.jpg' %}') no-repeat center;background-size: cover;">
+                        <div class="my-cart-image" ng-if="events.header_type == 0"> </div>
+                        <div class="my-cart-image" ng-if="events.header_type == 1"> <iframe ng-src="[[ trustSrc(events.header_info)]]" style="width:100%;height: 337px;"></iframe> </div>
+                        <div class="overlay-div"></div>
+                    </div>
+                    <div class="content-div">
+                        <p class="date">09 Jul 2022</p>
+                        <div class="post-social-div pull-right"> <a href="#!" ng-click="sharefbEvent(events)"><i class="step icon-facebook size-48"></i></a> <a href="#!" ng-click="sharetweetEvent(events.event_id)"><i class="step icon-twitter size-48"></i></a> </div>
+                        <h3><a href="events/events.slug.html"><p>10th Annual Snowdon Hike</p><p>About The Snowdon Hike</p> </a></h3>
+                        <p>In the heart of the Snowdonia National Park, you will commence your trek along the Llanberis Path. This great challenge will see you and fellow fundraisers hiking to the </p>
+                    </div>
+                    <div class="story-comment"> <a href="events/events.slug.html"><i class="fa fa-book"></i> Read More</a>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>

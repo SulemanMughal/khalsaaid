@@ -1,0 +1,63 @@
+{% load static %}
+
+<script type="text/javascript">
+	//code for subscritpion to mailchimp
+	$(document).on("click", ".mail_subscribe", function() {
+		//get textbox value
+		var SubscribeEmail = $("#email_address").val();
+
+		if (SubscribeEmail == '')
+		{
+			$("#error_subscribe").removeClass('hide');
+			$("#error_subscribe").text('Email Address is required.');
+			return false;
+		}
+		if (SubscribeEmail != '')
+		{
+			
+			var filter = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+			
+			if (!filter.test(SubscribeEmail)) {
+				$("#error_subscribe").removeClass('hide');
+				$("#error_subscribe").text('Invalid Email Address.');				
+			} else {
+				$("#error_subscribe").text('');
+				$("#error_subscribe").addClass('hide');
+				var fd = new FormData();
+				fd.append('email_address',SubscribeEmail)
+				//call ajax to subscribe
+				$.ajax({
+					url: 'https://www.khalsaaid.org/home/subscribe',
+					type: "post",
+					processData: false,
+					contentType: false,
+					data: fd,
+					beforeSend: function() {
+						$('.btn_submit_sign_up').attr('disabled', true);
+						$('.btn_submit_sign_up').text('Please Wait...');
+					},
+					success: function(res) {
+						if (res.status == '1')// in case genre added successfully
+						{
+							$("#error_subscribe").removeClass('hide');
+							$("#error_subscribe").text(res.message);
+							return false;
+						}
+					},
+					error: function(e) {
+						//called when there is an error
+						return false;
+					},
+					complete: function() {
+						$('#email_address').val('');
+						//hide message after 3 seconds
+						setTimeout(function() {
+							$("#error_subscribe").text('');
+							$("#error_subscribe").addClass('hide');
+						}, 3000);
+					}
+				}, "json");
+			}
+		}
+	});
+</script>

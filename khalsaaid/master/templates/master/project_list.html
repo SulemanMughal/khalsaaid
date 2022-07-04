@@ -1,0 +1,80 @@
+{% load static %}
+
+<div id="projectlist">
+    <div class="product-search-div">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="dropdown custom-project-dropdown"> <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="caret"></span> Select Project
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dLabel">
+                        <li> <input type="radio" ng-value="3" id="test3" ng-model="projectstatus" ng-change="filterFunction()"> <label for="test3">All Projects</label> </li>
+                        <li> <input type="radio" ng-value="0" id="test4" ng-model="projectstatus" ng-change="filterFunction()"> <label for="test4">Active Projects</label> </li>
+                        <li> <input type="radio" ng-value="1" id="test1" ng-model="projectstatus" ng-change="filterFunction()"> <label for="test1">Past Projects</label> </li>
+                        <li> <input type="radio" ng-value="2" id="test2" ng-model="projectstatus" ng-change="filterFunction()"> <label for="test2">Recently Updated Projects</label> </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="search-div"> <i class="fa fa-search"></i> <input type="text" ng-change="filterFunction()" ng-model="search" class="form-control" placeholder="Search across all projects"> </div>
+            </div>
+        </div>
+    </div>
+    <div class="activeProjects-div">
+        <div class="row">
+            <div class="col-xs-6 col-md-4" ng-repeat="projects in allprojects1| startFrom:currentPage * pageSize  | limitTo : pageSize">
+                <div class="active-projects-box">
+                    <div class="img-div"> <a href="#!"><img src="{% static 'images/1641481007_project_.jpg' %}" width="100%"></a>
+                        <div class="overlay-div"></div> <img src="{% static 'images/mg.png' %}" class="flag-img"> </div>
+                    <div class="content-div">
+                        <p>Nov 2021</p>
+                        <h3><a href="#!">Madagascar Famine Relief </a></h3>
+                        <p class="desc">Madagascar is in the midst of an emergency-level food crisis.&nbsp;The country has regularly been the victim of natural disasters but, following years of harsh weather </p>
+                    </div>
+                    <div class="story-comment"> <a href="#!"><i class="fa fa-book"></i> Read More</a>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-4" ng-repeat="projects in allprojects1| startFrom:currentPage * pageSize  | limitTo : pageSize">
+                <div class="active-projects-box">
+                    <div class="img-div"> <a href="#!"><img src="{% static 'images/1540306467_project_.jpg' %}" width="100%"></a>
+                        <div class="overlay-div"></div> <img src="{% static 'images/id.png' %}" class="flag-img"> </div>
+                    <div class="content-div">
+                        <p>Oct 2018</p>
+                        <h3><a href="#!">Indonesia Earthquake and Tsunami Relief</a></h3>
+                        <p class="desc">Indonesia – Earthquake and Tsunami ReliefA powerful earthquake ( 7.5 magnitude ) struck off the coast of Sulawesi, Indonesia, creating a tsunami which devastated the areas of Palu </p>
+                    </div>
+                    <div class="story-comment"> <a href="#!"><i class="fa fa-book"></i> Read More</a>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-4" ng-repeat="projects in allprojects1| startFrom:currentPage * pageSize  | limitTo : pageSize">
+                <div class="active-projects-box">
+                    <div class="img-div"> <a href="#!"><img src="{% static 'images/1540304399_project_.jpg' %}" width="100%"></a>
+                        <div class="overlay-div"></div> <img src="{% static 'images/in.png' %}" class="flag-img"> </div>
+                    <div class="content-div">
+                        <p>Aug 2018</p>
+                        <h3><a href="#!">Kerala Floods Relief</a></h3>
+                        <p class="desc">Kerala-India Floods ReliefMore than one million people were left homeless or trapped after the southern Indian state of Kerala saw its worst flooding in more than 90 years. Many  </p>
+                    </div>
+                    <div class="story-comment"> <a href="#!"><i class="fa fa-book"></i> Read More</a>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div ng-hide="  pageSize &gt;= allprojects1.length"> <a class="previouslist" ng-show="currentPage == 0">
+            <i class="fa fa-arrow-circle-left fa-2x"></i>
+        </a> <a class="previouslist" ng-hide="currentPage == 0" ng-click="currentPage = currentPage - 1">
+            <i class="fa fa-arrow-circle-left fa-2x"></i>
+        </a>
+        <div style="display:none">[[currentPage+1]]/[[numberOfPages()]]</div> <a class="nextlist" ng-hide="currentPage &gt;= allprojects1.length / pageSize - 1" ng-click="currentPage = currentPage + 1">
+            <i class="fa fa-arrow-circle-right fa-2x"></i>
+        </a> <a class="nextlist" ng-show="currentPage &gt;= allprojects1.length / pageSize - 1">
+            <i class="fa fa-arrow-circle-right fa-2x"></i>
+        </a> </div>
+</div>

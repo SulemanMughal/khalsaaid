@@ -1,0 +1,173 @@
+{% extends 'master/base.html' %}
+{% load static %}
+
+{% block title %}KhalsaAid{% endblock %}
+{% block content %}
+<div class="bodyDiv">
+    {% include 'master/header.html' %}
+    <!-- put condition to not to display on home page -->
+                    <section class="slider-div inner-page-head ">
+            <div class="overlay"></div>					
+                                <div id="carousel-example-generic-desktop" class="carousel carousel-fade" data-ride="carousel" data-interval="5000">
+                <div class="carousel-inner" role="listbox">
+                                                <div class="item active ">
+                        <img src="{% static 'uploads/banners/1558450009_banner.jpg.jpeg' %}" width="100%"> 
+                    </div>
+                                                
+                </div>
+            </div>
+            <div id="carousel-example-generic-inner" class="carousel carousel-fade" data-ride="carousel" data-interval="5000">
+                <div class="carousel-inner" role="listbox">
+                                                <div class="item active ">
+                        <img src="{% static 'uploads/banners/mobile/1558450009_banner.jpg.jpeg' %}" width="100%"> 
+                    </div>
+                                                
+                </div>
+            </div>
+                            </section>
+        <article ng-controller="NewsConroller">
+<section class="paddingTB60">
+<div class="container">
+
+
+<h2>Khalsa Aid &#8211; Who We Are &amp; What We Do</h2>
+<p>Khalsa Aid International is a UK-based humanitarian relief charity (Registered Charity Number: 1163294) providing support around the world to victims of natural and man-made disasters such as floods, earthquakes, famine and war.</p>
+
+<p>Our team is often one of the first on the scene to help distribute food, water, clothing, medical and sanitation supplies. We fund and build semi-permanent shelters, if needed &#8211; anything that&#8217;s required in those early days to save lives, reduce people&#8217;s immediate suffering and help maintain their dignity.</p>
+
+<p>The charity was founded by Ravinder (Ravi) Singh, who was struck by the plight of the refugees in Kosovo in 1999.</p>
+
+<p>That year also marked the 300th birth anniversary of the <b>Khalsa</b> &#8211; an opportunity for the community to reflect on the core teachings of their faith.</p>
+
+<p>Ravi saw the footage of the Kosovan refugees on the news and was inspired by one Sikhi ideology in particular &#8211; &#8220;Sarbat da Bhalla&#8221; meaning &#8220;well-being for all&#8221; &#8211; recognising the humanity in us all and reaching out to those in need, regardless of race, religion, borders.</p>
+
+<p>&#160;</p>
+
+<p><i>At the time of the celebrations across the UK, and around the world, there were terrible images on the news of refugees struggling to cross the cold and mountainous border to reach a safer and peaceful Albania.</i></p>
+
+<p>I read in the newspaper about a small group who were organising an aid convoy to Albania &#8211; the Sikhi teaching of &#8216;Sarbhat da Bhalla&#8217; came rushing to my mind.</p>
+
+<p>I phoned the group from the newspaper and asked to join them to help deliver aid donated by the Sikh community who had been extremely generous in giving food and money &#8211; within two weeks were on our way with two trucks and a van load of aid to Albania.Khalsa Aid was born.</p>
+
+<p>&#160;</p>
+
+<p>Whilst the inspiration for the charity stems from a strong belief in the Sikh principles, our work is by no means restricted to the Sikh community. Khalsa Aid became the first ever cross-border international humanitarian aid organisation based on the Sikh principles.</p>
+
+<p>Since 1999, we have been able to provide crucial aid to millions of people around the world: from victims of the Yemen Civil War to refugees landing on the shores of Greece from the Middle East and, more recently, the Rohingya Muslims from Myanmar seeking refuge in Bangladesh; to earthquake, flood and hurricane-stricken areas in Nepal, Australia, and the Caribbean.</p>
+
+<p>Closer to home, our teams have helped residents in the UK cope with the devastating floods that swept through Cumbria and the south-west of England; and we were there to support the families who escaped the horrific fire at Grenfell Tower in London.</p>
+
+<p>To find out more about our previous and current projects and how you can donate please <a href="./projects">click here</a>.</p> 
+
+
+</div>
+</section>
+</article>
+{% include 'master/twitter_section.html' %}
+<style>
+abbr[title], abbr[data-original-title]{
+border-bottom: none;
+}
+#carousel-background-twitter .cl-icon {
+opacity: 0;
+filter: alpha(opacity=0);
+}
+</style>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+
+var $carousel = $('#carousel-background-twitter');
+var $carouselCaptions = $carousel.find('.item .cl-icon');
+//var $carouselImages = $carousel.find('.item img');
+var carouselTimeout;
+
+$carousel.on('slid.bs.carousel', function() {
+    
+    var $item = $carousel.find('.item.active');
+    $('.cl-icon').animate({'opacity': 1}, 300);
+    carouselTimeout = setTimeout(function() { // start the delay
+        carouselTimeout = false;
+        $('.cl-icon').animate({'opacity': 0}, 300);                
+    }, 5000);
+}).on('slide.bs.carousel', function() {
+
+    $('.cl-icon').animate({'opacity': 0}, 300);
+    if (carouselTimeout) { // Carousel is sliding, stop pending animation if any
+        clearTimeout(carouselTimeout);
+        carouselTimeout = false;
+    }
+    // Reset styles
+    $('.cl-icon').animate({'opacity': 0}, 300);
+    
+});
+
+//        $('#carousel-background-twitter').carousel({
+//            interval: 5000,
+//            cycle: true,
+//        }).trigger('slid'); // Make the carousel believe that it has just
+
+
+});
+</script>
+<script type="text/javascript">
+//script to get twitter text
+$.ajax({
+url: 'https://www.khalsaaid.org/home/twitterdata',
+type: "get",
+beforeSend: function() {
+
+},
+success: function(res) {
+    //process data
+    if (res)// in case genre added successfully
+    {
+        //update follower count
+        var FollowerCount = parseInt(res.followers) > 999 ? (parseInt(res.followers) / 1000).toFixed(1) + 'k Followers' : parseInt(res.followers);
+        $(".follower_count").html(FollowerCount);
+        //loop through chat
+        var output = '';
+        var classactive = '';
+        //console.log(res.tweets.length)
+        var tweets = res.tweets;
+        for (var i = 0; i < tweets.length; i++)
+        {
+            if (i == 0)
+            {
+                classactive = 'active'
+            } else {
+                classactive = '';
+            }
+            output += '<div class="item ' + classactive + '">';
+            output += tweets[i]['text'];
+            output += '<div class="cl-icon"> <span style="margin-left:2px;" class="spantime"><i class="fa fa-clock-o"></i> <abbr class="timeago" title="' + tweets[i]['created_at'] + '"></abbr></span><span><i class="fa fa-retweet"></i> ' + tweets[i]['retweet_count'] + ' </span> <span><i class="fa fa-heart"></i> ' + tweets[i]['favorite_count'] + ' </span>';
+            //output += '<div class="time"> </div>';
+            output += '</div>';
+            output += '</div>';
+            //console.log(tweets[i]['created_at']);
+            $(".tweets-rotator").append(output);
+            output = '';
+        }
+        jQuery("abbr.timeago").timeago();
+        $('#carousel-background-twitter').carousel({
+            interval: 5000,
+            cycle: true,
+        }).trigger('slid'); // Make the carousel believe that it has just
+    } else {
+        console.log('data is not available');
+        return false;
+    }
+},
+error: function(e) {
+    //called when there is an error
+    //toastr.error('Oops! Something just went wrong. Please try again later.', 'News');
+},
+complete: function() {
+}
+}, "json");
+</script>
+    
+{% include 'master/programmes.html' %}
+    {% include 'master/footer.html' %}
+</div> <!-- end of bodyDiv started in header --> 
+
+{% endblock %}

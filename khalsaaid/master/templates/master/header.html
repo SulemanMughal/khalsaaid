@@ -1,0 +1,17 @@
+{% load static %}
+<header data-spy="affix" data-offset-top="80">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-xs-6"> <a href="{% url 'index' %}" class="logo"><img src="{% static 'images/frontsite/logo.png' %}" width="456" height="90"></a> </div>
+            <div class="col-sm-6 col-xs-6">
+                <div class="top-right-div">
+                    <a href="./2062092663" class="logo" style="visibility:hidden"><img src="{% static 'images/frontsite/logo.png' %}" width="1" height="90"> </a>
+                {% if section != "donation" %}
+                    <a href="{% url 'donations' %}" class="btn btn-orange f20px ">Donate </a>
+                {% endif %}
+                    <div class="dropdown main-menu-click"> <a href="javascript:void(0)" class="menu-icon"></a> </div>
+                </div>
+            </div>
+        </div>
+    </div>                        
+</header>

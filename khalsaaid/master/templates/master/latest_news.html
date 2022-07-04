@@ -1,0 +1,138 @@
+{% load static %}
+<section class="grey-bg paddingT30">
+    <div class="container">
+        <h2 class="title01 text-center">LATEST NEWS STORIES</h2>        
+    
+
+
+<div class="row" id="latest-news-section" style="height: 1285px;">
+    <!-- ngRepeat: news in allnews|  limitTo :6 --><div class="col-xs-6 col-md-4 white-panel ng-scope r1 c0" ng-repeat="news in allnews|  limitTo :6" style="width: 366.667px; left: 0px; top: 0px;">
+        <div class="active-projects-box">
+            <div class="img-div" style="background: url('{% static 'images/1647361389.jpeg' %}') no-repeat center;background-size: cover;" ng-click="GoToDetails();">
+                <!-- ngIf: news.header_type == 0 --><div class="my-cart-image ng-scope" ng-if="news.header_type == 0"> </div><!-- end ngIf: news.header_type == 0 -->
+                <!-- ngIf: news.header_type == 1 -->
+                <div class="overlay-div"></div>
+            </div>
+            <div class="content-div">
+                <!-- ngIf: news.display_date == 0 --><p ng-if="news.display_date == 0" class="date ng-binding ng-scope">15 Mar 2022</p><!-- end ngIf: news.display_date == 0 -->
+                <div class="post-social-div pull-right"> <a href="#!" ng-click="sharefb(news)"><i class="step icon-facebook size-48"></i></a> <a href="#!" ng-click="sharetweet(news.news_id)"><i class="step icon-twitter size-48"></i></a> </div>
+                <h3><a href="https://www.khalsaaid.org/news/khalsa-aid-international-response-to-the-ukraine-crisis-2022" class="ng-binding">Khalsa Aid International's Response to the Ukraine Crisis</a></h3>
+                    <p>
+                        KAI began our response to the Ukraine crisis the week before the war started, in preparation of this eventuality. As a result, Khalsa Aid International was able to respond 
+                    </p>
+            </div>
+            <div class="story-comment"> <a href="https://www.khalsaaid.org/news/khalsa-aid-international-response-to-the-ukraine-crisis-2022"><i class="fa fa-book"></i> Read More</a>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div><!-- end ngRepeat: news in allnews|  limitTo :6 --><div class="col-xs-6 col-md-4 white-panel ng-scope r1 c1" ng-repeat="news in allnews|  limitTo :6" style="width: 366.667px; left: 366.667px; top: 0px;">
+        <div class="active-projects-box">
+            <div class="img-div" style="background: url('{% static 'images/1641480303.jpg' %}') no-repeat center;background-size: cover;" ng-click="GoToDetails();">
+                <!-- ngIf: news.header_type == 0 --><div class="my-cart-image ng-scope" ng-if="news.header_type == 0"> </div><!-- end ngIf: news.header_type == 0 -->
+                <!-- ngIf: news.header_type == 1 -->
+                <div class="overlay-div"></div>
+            </div>
+            <div class="content-div">
+                <!-- ngIf: news.display_date == 0 --><p ng-if="news.display_date == 0" class="date ng-binding ng-scope">05 Jan 2022</p><!-- end ngIf: news.display_date == 0 -->
+                <div class="post-social-div pull-right"> <a href="#!" ng-click="sharefb(news)"><i class="step icon-facebook size-48"></i></a> <a href="#!" ng-click="sharetweet(news.news_id)"><i class="step icon-twitter size-48"></i></a> </div>
+                <h3><a href="https://www.khalsaaid.org/news/khalsa-aid-international-and-the-felix-project-are-in-partnership-to-fight-the-growing-hunger-crisis" class="ng-binding">Khalsa Aid International and The Felix Project are in partnership to fight the growing hunger crisis in London</a></h3>
+                       <div>
+<p>
+    Khalsa Aid International (the largest UK Sikh humanitarian agency) has formed a partnership with The Felix Project to fight hunger in London. The donation to date has 
+</p>
+    
+</div>
+</p>
+            </div>
+            <div class="story-comment"> <a href="https://www.khalsaaid.org/news/khalsa-aid-international-and-the-felix-project-are-in-partnership-to-fight-the-growing-hunger-crisis"><i class="fa fa-book"></i> Read More</a>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div><!-- end ngRepeat: news in allnews|  limitTo :6 --><div class="col-xs-6 col-md-4 white-panel ng-scope r1 c2" ng-repeat="news in allnews|  limitTo :6" style="width: 366.667px; left: 733.333px; top: 0px;">
+        <div class="active-projects-box">
+            <div class="img-div" style="background: url('{% static 'images/1638542357.jpg' %}') no-repeat center;background-size: cover;" ng-click="GoToDetails();">
+                <!-- ngIf: news.header_type == 0 --><div class="my-cart-image ng-scope" ng-if="news.header_type == 0"> </div><!-- end ngIf: news.header_type == 0 -->
+                <!-- ngIf: news.header_type == 1 -->
+                <div class="overlay-div"></div>
+            </div>
+            <div class="content-div">
+                <!-- ngIf: news.display_date == 0 --><p ng-if="news.display_date == 0" class="date ng-binding ng-scope">03 Dec 2021</p><!-- end ngIf: news.display_date == 0 -->
+                <div class="post-social-div pull-right"> <a href="#!" ng-click="sharefb(news)"><i class="step icon-facebook size-48"></i></a> <a href="#!" ng-click="sharetweet(news.news_id)"><i class="step icon-twitter size-48"></i></a> </div>
+                <h3><a href="https://www.khalsaaid.org/news/khalsa-aid-and-irc-launch-a-new-partnership-to-support-refugee-integration-in-the-uk" class="ng-binding">Khalsa Aid and IRC launch a new partnership to support refugee integration in the UK</a></h3>
+                <p>
+<strong>3 December 2021 - </strong>
+Khalsa Aid International and the International Rescue Committee (IRC) have launched a new partnership to support refugees with vital integration services in the UK. 
+</p>
+
+            </div>
+            <div class="story-comment"> <a href="https://www.khalsaaid.org/news/khalsa-aid-and-irc-launch-a-new-partnership-to-support-refugee-integration-in-the-uk"><i class="fa fa-book"></i> Read More</a>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div><!-- end ngRepeat: news in allnews|  limitTo :6 --><div class="col-xs-6 col-md-4 white-panel ng-scope r2 c0" ng-repeat="news in allnews|  limitTo :6" style="width: 366.667px; left: 0px; top: 634px;">
+        <div class="active-projects-box">
+            <div class="img-div" style="background: url('{% static 'images/1634399600.jpg' %}') no-repeat center;background-size: cover;" ng-click="GoToDetails();">
+                <!-- ngIf: news.header_type == 0 --><div class="my-cart-image ng-scope" ng-if="news.header_type == 0"> </div><!-- end ngIf: news.header_type == 0 -->
+                <!-- ngIf: news.header_type == 1 -->
+                <div class="overlay-div"></div>
+            </div>
+            <div class="content-div">
+                <!-- ngIf: news.display_date == 0 --><p ng-if="news.display_date == 0" class="date ng-binding ng-scope">16 Oct 2021</p><!-- end ngIf: news.display_date == 0 -->
+                <div class="post-social-div pull-right"> <a href="#!" ng-click="sharefb(news)"><i class="step icon-facebook size-48"></i></a> <a href="#!" ng-click="sharetweet(news.news_id)"><i class="step icon-twitter size-48"></i></a> </div>
+                <h3><a href="https://www.khalsaaid.org/news/wfp-and-khalsa-aid-international-strike-partnership-to-support-most-vulnerable-in-two-critical-food-" class="ng-binding">WFP and Khalsa Aid International strike partnership to support most vulnerable in two critical food crises</a></h3>
+                <p>
+                    
+<em>
+    Rome/London – The World Food Programme (WFP) welcomes a contribution from Khalsa Aid International as part of a three-year programme to support school children in
+    </em>
+                </p>
+
+
+            </div>
+            <div class="story-comment"> <a href="https://www.khalsaaid.org/news/wfp-and-khalsa-aid-international-strike-partnership-to-support-most-vulnerable-in-two-critical-food-"><i class="fa fa-book"></i> Read More</a>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div><!-- end ngRepeat: news in allnews|  limitTo :6 --><div class="col-xs-6 col-md-4 white-panel ng-scope r2 c1" ng-repeat="news in allnews|  limitTo :6" style="width: 366.667px; left: 366.667px; top: 651px;">
+        <div class="active-projects-box">
+            <div class="img-div" style="background: url('{% static 'images/1629039649.jpg' %}') no-repeat center;background-size: cover;" ng-click="GoToDetails();">
+                <!-- ngIf: news.header_type == 0 --><div class="my-cart-image ng-scope" ng-if="news.header_type == 0"> </div><!-- end ngIf: news.header_type == 0 -->
+                <!-- ngIf: news.header_type == 1 -->
+                <div class="overlay-div"></div>
+            </div>
+            <div class="content-div">
+                <!-- ngIf: news.display_date == 0 --><p ng-if="news.display_date == 0" class="date ng-binding ng-scope">15 Aug 2021</p><!-- end ngIf: news.display_date == 0 -->
+                <div class="post-social-div pull-right"> <a href="#!" ng-click="sharefb(news)"><i class="step icon-facebook size-48"></i></a> <a href="#!" ng-click="sharetweet(news.news_id)"><i class="step icon-twitter size-48"></i></a> </div>
+                <h3><a href="https://www.khalsaaid.org/news/afghan-humanitarian-emergency-2021" class="ng-binding">Afghan Humanitarian Emergency</a></h3>
+                <p>
+                    Letter to the Secretary of State with concern about the developments in Afghanistan, where the situation is becoming more precarious by the minute. 
+                </p>
+            </div>
+            <div class="story-comment"> <a href="https://www.khalsaaid.org/news/afghan-humanitarian-emergency-2021"><i class="fa fa-book"></i> Read More</a>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div><!-- end ngRepeat: news in allnews|  limitTo :6 --><div class="col-xs-6 col-md-4 white-panel ng-scope r2 c2" ng-repeat="news in allnews|  limitTo :6" style="width: 366.667px; left: 733.333px; top: 651px;">
+        <div class="active-projects-box">
+            <div class="img-div" style="background: url('{% static 'images/1629476113.jpg' %}') no-repeat center;background-size: cover;" ng-click="GoToDetails();">
+                <!-- ngIf: news.header_type == 0 --><div class="my-cart-image ng-scope" ng-if="news.header_type == 0"> </div><!-- end ngIf: news.header_type == 0 -->
+                <!-- ngIf: news.header_type == 1 -->
+                <div class="overlay-div"></div>
+            </div>
+            <div class="content-div">
+                <!-- ngIf: news.display_date == 0 --><p ng-if="news.display_date == 0" class="date ng-binding ng-scope">20 Aug 2021</p><!-- end ngIf: news.display_date == 0 -->
+                <div class="post-social-div pull-right"> <a href="#!" ng-click="sharefb(news)"><i class="step icon-facebook size-48"></i></a> <a href="#!" ng-click="sharetweet(news.news_id)"><i class="step icon-twitter size-48"></i></a> </div>
+                <h3><a href="https://www.khalsaaid.org/news/water-for-africa-malawi" class="ng-binding">Water for Africa - Malawi</a></h3>
+                <p>
+                    Since our first borehole project in February 2015, Khalsa Aid has installed a further 23+ freshwater boreholes in Malawi. Malawi is recognised as one of the poorest countries in 
+                </p>
+            </div>
+            <div class="story-comment"> <a href="https://www.khalsaaid.org/news/water-for-africa-malawi"><i class="fa fa-book"></i> Read More</a>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div><!-- end ngRepeat: news in allnews|  limitTo :6 -->
+</div>
+
+</div>
+</section>
