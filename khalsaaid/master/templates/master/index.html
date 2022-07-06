@@ -4,6 +4,7 @@
 {% block title %}KhalsaAid{% endblock %}
 
 {% block content %}
+
             <div class="bodyDiv">
                 
                 {% include 'master/header.html' %}
@@ -30,6 +31,13 @@
 
 
     			</section>
+                <section class="paddingTB60">
+                    <div class="container " style="border:3px solid orangered; padding: 20px;">
+                        <div class="row ">
+                            <div class="col-xs-12 col-md-12 col-sm-12 text-center"><h1 class="title01 text-center text-orange " style="color: orangered; font-weight: bolder; font-size: 38px;">Join khalsa Think Tank as analyst, Whats App CV on +91 9517896272</h1> </div>
+                        </div>
+                    </div>
+                </section>
     <section class="paddingTB60">
         <div class="container">
             <h2 class="title01 text-center">About Us</h2>
@@ -38,6 +46,7 @@
             </div>
         </div>
     </section>
+    
     <article ng-controller="NewsConroller">
 		{% include 'master/latest_news.html' %}
 		{% include 'master/latest_events.html' %}
