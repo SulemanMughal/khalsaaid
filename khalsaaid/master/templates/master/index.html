@@ -4,7 +4,23 @@
 {% block title %}KhalsaAid{% endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" integrity="sha512-WEQNv9d3+sqyHjrqUZobDhFARZDko2wpWdfcpv44lsypsSuMO0kHGd3MQ8rrsBn/Qa39VojphdU6CMkpJUmDVw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <style>
+        .white-popup {
+  position: relative;
+  background: #FFF;
+  padding: 20px;
+  width: auto;
+  max-width: 500px;
+  margin: 20px auto;
+  
+}
+.mfp-wrap {
+z-index: 999999;
+}
+    </style>
             <div class="bodyDiv">
                 
                 {% include 'master/header.html' %}
@@ -31,13 +47,6 @@
 
 
     			</section>
-                <section class="paddingTB60">
-                    <div class="container " style="border:3px solid orangered; padding: 20px;">
-                        <div class="row ">
-                            <div class="col-xs-12 col-md-12 col-sm-12 text-center"><h1 class="title01 text-center text-orange " style="color: orangered; font-weight: bolder; font-size: 38px;">Join khalsa Think Tank as analyst, Whats App CV on +91 9517896272</h1> </div>
-                        </div>
-                    </div>
-                </section>
     <section class="paddingTB60">
         <div class="container">
             <h2 class="title01 text-center">About Us</h2>
@@ -469,5 +478,19 @@
 
 	{% include 'master/programmes.html' %}
     {% include 'master/footer.html' %}
+    
+    
+
         </div> 
+        <script>
+            $(document).ready(function() {
+                $.magnificPopup.open({
+      items: {
+        src: `<div class="white-popup" style="border:3px solid orangered; padding: 20px;"><h1 class="title01 text-center text-orange " style="color: orangered; font-weight: bolder; font-size: 30px;margin-bottom:0px;">Join khalsa Think Tank as analyst, Whats App CV on +91 9517896272</h1></div>`, // can be a HTML string, jQuery object, or CSS selector
+        type: 'inline'
+      },
+      closeBtnInside: true
+    });
+            });
+        </script>
 {% endblock %}
