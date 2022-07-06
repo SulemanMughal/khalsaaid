@@ -67,12 +67,18 @@ def employees(request):
 
 from django.conf import settings
 from django.core.mail import EmailMessage
-
+from django.core.mail import send_mail
 
 def subscribe(request):
-    subject, body, email = "sadasd", "test", "rahulriaan70@gmail.com"
+    subject = "sadasd"
+    from_email = settings.DEFAULT_FROM_EMAIL 
+    message = 'This is my test message'
+    recipient_list = ['rahulriaan70@gmail.com'] 
+    html_message = '<h1>This is my HTML test</h1>'
     try:
+
         # email_msg = EmailMessage(subject, body, settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER], reply_to=[email])
+        # send_mail(subject, message, from_email, recipient_list, fail_silently=False, html_message=html_message)
         # email_msg.send()
         print("mail has been send")
         return redirect(reverse("index"))

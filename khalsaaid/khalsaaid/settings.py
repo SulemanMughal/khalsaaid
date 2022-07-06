@@ -132,12 +132,23 @@ MEDIA_ROOT=os.path.join(os.path.dirname(BASE_DIR),'media')
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtpout.secureserver.net'
+EMAIL_HOST = 'smtp.gmail.com'
 # EMAIL_HOST = 'smtpout.secureserver.net'
 EMAIL_HOST_USER = 'rahulriaan70@gmail.com'
-DEFAULT_FROM_EMAIL = "support@khalsa-aid.in"
-# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = 'india@1947'
-EMAIL_PORT = 465
+DEFAULT_FROM_EMAIL = 'testmail@gmail.com'
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = 'smtp.gmail.com'
+EMAIL_PORT = 587
 EMAIL_USE_SSL = False
 EMAIL_USE_TLS = True
+
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# # EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER = 'rahulriaan70@gmail.com'
+# EMAIL_HOST_PASSWORD = 'india@1947
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# # DEFAULT_FROM_EMAIL = "Circledin"  s
