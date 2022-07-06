@@ -26,8 +26,9 @@ SECRET_KEY = 'fi#6#0u+($yr5wx%m#&63163&ty4cbe4=jf88^vm=ejxza2d)g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
 ALLOWED_HOSTS = ['68.183.92.248', 'khalsa-aid.in']
+
+# DEBUG = True
 # ALLOWED_HOSTS = []
 
 
