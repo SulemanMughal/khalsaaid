@@ -11,4 +11,7 @@ urlpatterns = [
     path("events", views.events, name="events"),
     path("blogs", views.blogs, name="blogs"),
     path("projects", views.projects, name="projects"),
+    path("employees", views.employees, name="employess"),
+    path("subscribe-email", views.subscribe, name="subscribe"),
+    path("subscribe", views.subscribePage, name="subscribe_page"),
 ]

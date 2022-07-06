@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
+
 
 # Create your views here.
 
@@ -54,3 +56,37 @@ def projects(request):
         "section" : "projects"
     }
     return render(request, template_name, context)
+
+
+def employees(request):
+    template_name = 'master/employess.html'
+    context = {
+    }
+    return render(request, template_name, context)
+
+
+from django.conf import settings
+from django.core.mail import EmailMessage
+
+
+def subscribe(request):
+    subject, body, email = "sadasd", "test", "rahulriaan70@gmail.com"
+    try:
+        # email_msg = EmailMessage(subject, body, settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER], reply_to=[email])
+        # email_msg.send()
+        print("mail has been send")
+        return redirect(reverse("index"))
+    except Exception as e:
+        print("**"*70 , e , "*" *70)
+        return redirect(reverse("index"))
+    
+
+def subscribePage(request):
+    template_name = 'master/subscribe.html'
+    context = {
+    }
+    return render(request, template_name, context)
+
+
+# def send_email():
+    

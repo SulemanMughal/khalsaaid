@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'fi#6#0u+($yr5wx%m#&63163&ty4cbe4=jf88^vm=ejxza2d)g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['68.183.92.248']
 
 
 # Application definition
@@ -129,3 +129,15 @@ STATICFILES_DIRS=[
     ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT=os.path.join(os.path.dirname(BASE_DIR),'media')
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtpout.secureserver.net'
+# EMAIL_HOST = 'smtpout.secureserver.net'
+EMAIL_HOST_USER = 'rahulriaan70@gmail.com'
+DEFAULT_FROM_EMAIL = "support@khalsa-aid.in"
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = 'india@1947'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = False
+EMAIL_USE_TLS = True

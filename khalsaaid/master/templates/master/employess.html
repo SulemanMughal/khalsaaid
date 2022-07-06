@@ -1,0 +1,43 @@
+{% extends 'master/base.html' %}
+{% load static %}
+
+{% block title %}KhalsaAid{% endblock %}
+
+{% block content %}
+
+<div class="bodyDiv">
+                
+    {% include 'master/header.html' %}
+    <section class="slider-div">
+        <div class="overlay"></div>
+        <div id="carousel-example-generic-inner" class="carousel carousel-fade" data-ride="carousel" data-interval="5000" data-pause="false" style="display: none;">
+        <div class="carousel-inner" role="listbox">
+            <div class="item active ">
+                <img src="{% static 'uploads/banners/mobile/1584292892_banner.jpg.jpeg' %}" width="100%"> 
+            </div>						
+        </div>
+    </div>
+<div id="carousel-background" class="carousel carousel-fade" data-ride="carousel" data-interval="5000" data-pause="false">
+    <div class="carousel-inner" role="listbox">
+                    <div class="item active ">
+            <img src="{% static 'uploads/banners/mobile/1584292892_banner.jpg.jpeg' %}" width="100%"> 
+        </div>
+                                    
+    </div>		
+</div>
+
+        
+
+
+        </section>
+        <section class="paddingTB60">
+            <div class="container">
+                <h2>Employess</h2>
+            </div>
+        </section>  
+    {% include 'master/twitter_section.html' %}
+    {% include 'master/programmes.html' %}
+    {% include 'master/footer.html' %}
+</div> 
+
+{% endblock %}
