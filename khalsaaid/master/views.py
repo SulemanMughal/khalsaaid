@@ -58,9 +58,10 @@ def projects(request):
     return render(request, template_name, context)
 
 
-def employees(request):
+def team(request):
     template_name = 'master/employess.html'
     context = {
+        "section" : "team"
     }
     return render(request, template_name, context)
 

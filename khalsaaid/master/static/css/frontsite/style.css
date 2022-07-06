@@ -1605,3 +1605,14 @@ video {
 .sub-input input{     width: calc(100% - 132px);
                       display: inline-block; float: left;} 
 .sub-input .btn{float: left;} 
+
+.shadow{
+    box-shadow:
+  2.8px 8.4px 9.8px rgba(0, 0, 0, 0.035),
+  22px 67px 78px rgba(0, 0, 0, 0.07)
+;
+}
+
+.mt-2{
+    margin-top: 8px;
+}
